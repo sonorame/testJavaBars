@@ -6,6 +6,10 @@
 >Клиент должен быть написан на JavaFx
 
 ## Установка
-1. [Скачать](https://github.com/sonorame/testJavaBars/tree/master/out/artifacts/testJavaBars_jar "клиент и сервер") клиент и сервер
-2. Запустить Server.exe, нажать на кнопку "Запустить сервер"
-3. Запустить Client.exe, пройти авторизацию (дефолт в базе admin 111)
+1. Развернуть [базу](https://github.com/sonorame/testJavaBars/tree/master/out/backup "DB sql backup")
+2. [Скачать](https://github.com/sonorame/testJavaBars/tree/master/out/exe "клиент и сервер") клиент и сервер
+3. Запустить Server.exe, нажать на кнопку "Запустить сервер"
+4. Запустить Client.exe, пройти авторизацию (дефолт в базе admin 111)
+
+## Пример использования
+![здесь была гифка](https://s11.gifyu.com/images/example.gif)
