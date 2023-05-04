@@ -1,7 +1,6 @@
 package com.example.testjavabars;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,8 +14,23 @@ public class DBConnection {
     public static String SERVER_ADDRESS;
     public static int SERVER_PORT;
 
+    public static Connection getConnection() throws SQLException {
+        if (connection == null || connection.isClosed()) {
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+        }
+        return connection;
+    }
+    //вынести в отдельный класс
     public static void loadConfig() {
-        try (InputStream input = DBConnection.class.getClassLoader().getResourceAsStream("config.properties")) {
+        InputStream input = null;
+        try {
+            // Попытаемся загрузить файл config.properties из папки, где находится .exe файл
+            input = new FileInputStream(new File("").getAbsolutePath() + File.separator + "config.properties");
+        } catch (FileNotFoundException e) {
+            // Если файл не найден (если запускаем с IDEA), то загрузим его из папки resources
+            input = DBConnection.class.getClassLoader().getResourceAsStream("config.properties");
+        }
+        try {
             Properties prop = new Properties();
             prop.load(input);
             SERVER_ADDRESS = prop.getProperty("SERVER_ADDRESS");
@@ -26,14 +40,15 @@ public class DBConnection {
             DB_PASSWORD = prop.getProperty("DB_PASSWORD");
         } catch (IOException ex) {
             ex.printStackTrace();
+        } finally {
+            if (input != null) {
+                try {
+                    //закрываем стрим
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
-
-    public static Connection getConnection() throws SQLException {
-        if (connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-        }
-        return connection;
-    }
-
 }
