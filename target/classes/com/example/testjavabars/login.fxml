@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testjavabars.LoginController">
+    <children>
+        <Button fx:id="loginButton" layoutX="130.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleLoginButton" text="Вход" />
+
+        <Label layoutX="35.0" layoutY="65.0" text="Логин" />
+        <TextField fx:id="usernameField" layoutX="80.0" layoutY="60.0" />
+
+        <Label layoutX="30.0" layoutY="110.0" prefHeight="0.0" prefWidth="50.0" text="Пароль" />
+        <PasswordField fx:id="passwordField" layoutX="80.0" layoutY="105.0" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testjavabars.RdogovorController">
+    <center>
+        <TableView fx:id="tableView">
+            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="dateStartColumn" text="Дата создания"/>
+                <TableColumn fx:id="updateTimeColumn" text="Дата последнего обновления"/>
+                <TableColumn fx:id="dogNoColumn" text="Номер договора"/>
+                <TableColumn fx:id="aktualnostColumn" text="Актуальность">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="aktualnost"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
